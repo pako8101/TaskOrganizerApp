@@ -6,7 +6,7 @@
 <header th:replace="fragments/commons::nav"></header>
 <main>
     <div class="container bg-blur rounded mt-5 ">
-        <h1>Welcome to Tasks Organizer Application</h1>
+        <h1 style="color: #bd2130">Welcome to Tasks Organizer Application</h1>
         <hr class="my-3 bg-white w-50"/>
 
         <p class="h4">
@@ -21,10 +21,10 @@
         <hr class="my-3 bg-white w-75"/>
 
         <h3>
-            <a class="text-primary" href="/">Login</a>
+            <a class="text-primary" th:href="@{/register}">Login</a>
             if you have an account or
-            <a class="text-primary" href="/">Register</a>
-            now and check our deals.
+            <a class="text-primary" th:href="@{/register}">Register</a>
+            now and check our offers.
         </h3>
     </div>
 </main>
