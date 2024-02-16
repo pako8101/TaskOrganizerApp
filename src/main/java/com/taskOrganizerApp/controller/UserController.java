@@ -3,6 +3,8 @@ package com.taskOrganizerApp.controller;
 import com.taskOrganizerApp.model.dto.user.UserLoginBindingModel;
 import com.taskOrganizerApp.model.dto.user.UserRegisterBindingModel;
 import com.taskOrganizerApp.service.UserService;
+import com.taskOrganizerApp.service.impl.LoggedUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +18,12 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
-
-    public UserController(UserService userService) {
+    private final LoggedUser loggedUser;
+@Autowired
+    public UserController(UserService userService, LoggedUser loggedUser) {
         this.userService = userService;
-    }
+    this.loggedUser = loggedUser;
+}
 
     @GetMapping("/login")
     public ModelAndView login(@ModelAttribute("userLoginBindingModel")
@@ -70,5 +74,13 @@ public class UserController {
         }
 
         return new ModelAndView("redirect:/login");
+    }
+    @PostMapping("/logout")
+    public ModelAndView logout(){
+    if (!loggedUser.isLogged()){
+        return new ModelAndView("redirect:/home");
+    }
+    this.userService.logout();
+    return new ModelAndView("redirect:/");
     }
 }

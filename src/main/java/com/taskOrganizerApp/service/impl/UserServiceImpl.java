@@ -26,8 +26,10 @@ public class UserServiceImpl implements UserService {
             return false;
         }
 
-        User dbUser = this.userRepository.findByUsername(userRegisterBindingModel.getUsername());
-        if (dbUser != null) {
+
+        boolean existByUsernameOrEmail = this.userRepository.existsByUsernameOrEmail(userRegisterBindingModel.getUsername(),
+                userRegisterBindingModel.getEmail());
+        if (existByUsernameOrEmail) {
             return false;
         }
         User user = new User();
@@ -60,7 +62,7 @@ if (user!= null && passwordEncoder.matches(userLoginBindingModel.getPassword(),
 
     @Override
     public void logout() {
-        loggedUser.logout();
+       this.loggedUser.logout();
     }
 
 }

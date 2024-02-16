@@ -75,3 +75,10 @@ footer {
 
 #big-div{
 }
+
+.logout{
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+
+}
