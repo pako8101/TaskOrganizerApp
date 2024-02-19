@@ -13,15 +13,15 @@ public class DutyHomeViewModel {
        this(new ArrayList<>(), new ArrayList<>());
     }
 
-    public DutyHomeViewModel(List<DutyDTO> assignedDuties, List<DutyDTO> availableDuties, int availableSize) {
+    public DutyHomeViewModel(List<DutyDTO> assignedDuties, List<DutyDTO> availableDuties) {
         this.assignedDuties = assignedDuties;
         this.availableDuties = availableDuties;
         this.availableSize = availableDuties.size();
     }
 
-    public <E> DutyHomeViewModel(List<E> es, List<E> es1) {
-
-    }
+//    public <E> DutyHomeViewModel(List<E> es, List<E> es1) {
+//
+//    }
 
     public List<DutyDTO> getAssignedDuties() {
         return assignedDuties;

@@ -17,13 +17,20 @@ public class DutyAddBindingModel {
     private String description;
 
     @DateInFuture(message = "Due Date must be in future")
-    private LocalDate dueDate;
+    private String dueDate;
 
 
     @NotNull(message = "You must select a importance!")
     private ImportanceName importance;
 
-    public DutyAddBindingModel() {
+
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
     }
 
     public String getDescription() {
@@ -34,13 +41,7 @@ public class DutyAddBindingModel {
         this.description = description;
     }
 
-    public LocalDate getDueDate() {
-        return dueDate;
-    }
 
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
-    }
 
     public ImportanceName getImportance() {
         return importance;

@@ -12,8 +12,9 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-lg bg-nav rounded">
-        <a class="nav-link my-text-color active h5 " href="/">Tasks Organizer App</a>
-        <a class="nav-link my-text-color active h5 " href="/">Add Task</a>
+        <a class="nav-link my-text-color active h5 " th:if="${@loggedUser.isLogged}"  th:href="@{/home}">Tasks Organizer App</a>
+        <a class="nav-link my-text-color active h5 " th:unless="${@loggedUser.isLogged}"  th:href="@{/}">Tasks Organizer App</a>
+        <a class="nav-link my-text-color active h5 " th:if="${@loggedUser.isLogged}"  th:href="@{duties/add}">Add Task</a>
 
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav row">
@@ -29,8 +30,10 @@
                 </li>
 
                 <li th:if="${@loggedUser.isLogged}" class="nav-item col-md-4">
-                    <form th:action="@{/logout}" th:method="POST"></form>
-                    <button style="color: orangered" type="submit" class="btn-link my-text-color active h5 logout" >Logout</button>
+                    <form style="font-family: 'Arial Black',sans-serif ; color: #71dd8a" th:action="@{/logout}" th:method="POST">
+                        <button style="color: orangered" type="submit" class="btn-link my-text-color active h5 logout" >Logout</button>
+                    </form>
+
                 </li>
             </ul>
         </div>
@@ -39,7 +42,7 @@
 <footer class="footer bg-transparent  py-2">
     <div class="container-fluid text-center">
         <div style="font-weight: bold" class="footer-background h5 my-text-color fixed-bottom">
-            &copy; Kamenov team 2024. All rights reserved.
+            &copy; Kamenov Spring team 2024. All rights reserved.
         </div>
     </div>
 </footer>
