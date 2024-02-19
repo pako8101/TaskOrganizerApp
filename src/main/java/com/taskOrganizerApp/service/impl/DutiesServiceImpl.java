@@ -36,6 +36,8 @@ public class DutiesServiceImpl implements DutyService {
             Duty duty = new Duty();
             duty.setDescription(dutyAddBindingModel.getDescription());
             duty.setDueDate(LocalDate.parse(dutyAddBindingModel.getDueDate()));
+            duty.setImportance(importance);
+
        this.dutyRepository.save(duty);
         }
 

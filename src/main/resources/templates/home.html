@@ -30,7 +30,7 @@
                                 <td>
                                     <form  th:method="POST"
                                            th:action="@{/tasks/return/{id}(id=${assignedDuty.id})}">
-                                       <button style="color: #6f42c1" type="submit" class="custom-button">
+                                       <button type="submit" class="custom-button">
                                            <img  src="/img/return.png" height="35px">
                                        </button>
 
@@ -41,7 +41,7 @@
                         </table>
                     </li>
                     <li class="list-group-item list-group-item-warning text-dark">
-                        <a style="font-family: Broadway,fantasy" th:text="${assignedDuty.description}">{description}</a>
+                        <a th:text="${assignedDuty.description}">{description}</a>
                     </li>
                 </ul>
             </div>
@@ -65,8 +65,9 @@
                                       <form  th:method="POST"
                                       th:action="@{/duties/assign/{id}(id=${availableDuty.id})}">
 
-                                          <button type="submit" class="custom-button" ></button>
+                                          <button type="submit" class="custom-button" >
                                           <img src="/img/assign-to-me-button.png" height="35px">
+                                          </button>
                                       </form>
 
                                     </td>

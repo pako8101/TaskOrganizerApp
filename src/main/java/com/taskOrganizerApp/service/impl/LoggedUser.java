@@ -1,6 +1,7 @@
 package com.taskOrganizerApp.service.impl;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
@@ -9,6 +10,7 @@ import org.springframework.web.context.annotation.SessionScope;
 @Setter
 @Component
 @SessionScope
+@NoArgsConstructor
 public class LoggedUser {
 
     private  String username;
